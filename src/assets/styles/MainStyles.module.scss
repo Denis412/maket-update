@@ -1,3 +1,5 @@
+$background-page-color: #F8F8F8;
+
 .mainWrapper {
   display: flex;
 }
@@ -13,7 +15,7 @@
   height: 100vh;
 
   box-shadow: -2px 0px 4px rgba(69, 79, 126, 0.02),
-  16px 0px 52px rgba(14, 24, 80, 0.2);
+              16px 0px 52px rgba(14, 24, 80, 0.2);
 
   &LeftSide {
     left: 0;
@@ -132,6 +134,10 @@
 
   background: #FFFFFF;
 
+  &:not(&:last-child) {
+    margin-right: 2rem;
+  }
+
   &Company {
     display: flex;
     justify-content: space-between;
@@ -156,7 +162,11 @@
 .cardsList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+
+  //max-height: 10rem;
+
+  overflow-y: hidden;
+  //justify-content: space-around;
 }
 
 .chapterWrapper {
@@ -265,12 +275,15 @@
 
   width: 20rem;
   min-width: 20rem;
-  min-height: 200vh;
+  max-height: 100%;
 
   padding: 0 1.5rem;
 
+  background: #FFFFFF;
+
   box-shadow: 16px 0 52px rgba(14, 24, 80, 0.2);
 
+  transition: 0.4s;
 }
 
 .pagesListWrapper {
@@ -364,4 +377,248 @@
 
   display: flex;
   flex-direction: column;
+}
+
+.navbarPageWrapper {
+  display: flex;
+
+  margin: 0.5rem 2rem;
+  //min-height: max-content;
+}
+
+.navbarPageList {
+  display: flex;
+  flex-wrap: wrap;
+  //justify-content: space-between;
+
+  width: 100%;
+}
+
+.pageNavbarElement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: max-content;
+  height: max-content;
+
+  padding: 0.5rem 1.375rem;
+
+
+  border: 2px solid $background-page-color;
+
+  cursor: pointer;
+
+  &Active {
+    border: 2px solid #B8FFEC;
+    border-radius: 6px;
+
+    background: #FFFFFF;
+  }
+}
+
+.navbarText {
+  text-align: center;
+}
+
+.pageContent {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  max-width: 1600px;
+
+  background: $background-page-color;
+}
+
+.informationTextWrapper {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 14px;
+
+  margin-right: 2rem;
+
+  & p:not(& p:first-child) {
+    margin-top: 2rem;
+  }
+}
+
+.showAllButton {
+  width: max-content;
+
+  margin-top: 1rem;
+}
+
+.imageRadius6 {
+  border-radius: 6px;
+}
+
+.pageInformationWrapper {
+  display: flex;
+
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 4rem;
+}
+
+.tableWrapper {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 2rem;
+}
+
+.headerPageWrapper {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 3rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
+
+  & span {
+    display: flex;
+  }
+
+  & div button:not(& div button:last-child) {
+    margin-right: 2rem;
+  }
+}
+
+.boldText {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.headerTableWrapper {
+  display: flex;
+
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.tableContentWrapper {
+
+  padding: 0 1.5rem;
+
+  border-radius: 6px;
+  background: #FFFFFF;
+}
+
+
+
+.tableHeaderItem {
+  color: #7E7E82;
+}
+
+.tablePriceItem {
+  display: flex;
+  align-items: center;
+
+  height: 4rem;
+
+  &:not(&:last-child) {
+    border-bottom: 1px solid #EAEAEA;
+  }
+}
+
+.footerPageWrapper {
+  display: flex;
+  justify-content: space-between;
+
+  margin-right: 2rem;
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+
+  font-size: 14px;
+
+  color: #7E7E82;
+
+  & a {
+    text-decoration: none;
+    max-width: 20.625rem;
+
+    cursor: pointer;
+  }
+
+  & a:not(& a:last-child) {
+    margin-right: 2.5rem;
+  }
+
+  & a:last-child {
+    text-align: end;
+  }
+
+  & a:hover {
+    text-decoration: underline;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  min-height: 5.5rem;
+
+  padding: 0 1.5rem;
+
+  background: #FFFFFF;
+
+  &Split {
+    height: 2rem;
+    width: 2px;
+
+    background: #EAEAEA;
+    border-radius: 1px;
+  }
+
+
+  &CenterContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: max-content;
+
+    //margin: 0 1.25rem;
+    padding: 0 1.25rem;
+
+  }
+}
+
+.blackout {
+  position: fixed;
+  top:0;
+
+  width: 100vw;
+  min-height: 100vh;
+
+  background: #FFFFFF;
+  opacity: 0.96;
+}
+
+@media (max-width: 768px) {
+  .sidebarWrapper {
+    position: fixed;
+    top: 0;
+
+    height: 100vh;
+
+    z-index: 9999;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 369px) {
+  .navbarPageList {
+    width: 768px - 48px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+
+  .pageNavbarElement {
+    min-width: max-content;
+  }
 }

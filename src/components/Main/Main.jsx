@@ -21,8 +21,20 @@ import CardsList from "../CardsList/CardsList";
 import CustomButton from "../CustomButton/CustomButton";
 import ModalFeedbackContent from "../ModalFeedbackContent/ModalFeedbackContent";
 import ModalWindow from "../ModalWindow/ModalWindow";
+import PageNavbar from "../PageNavbar/PageNavbar";
+import PageContent from "../PageContent/PageContent";
+import Blackout from "../Blackout/Blackout";
+import MediaQuery from "react-responsive";
+import Header from "../Header/Header";
 
 const Main = () => {
+    const [hideSidebar, setHideSidebar] = useState(true);
+
+    const handlerHiddenSidebar = (hidden) => {
+        console.log("gg")
+        setHideSidebar(hidden);
+    }
+
     return (
         <div className={classes.mainWrapper}>
             <Sidebar pagesList={[
@@ -34,25 +46,14 @@ const Main = () => {
                 {id: 6, title: "Производителям"},
                 {id: 7, title: "Наши сервисные центры"},
                 {id: 8, title: "Контакты"},
-            ]}/>
-            {/*<ModalWindow title="Отправить заявку" side="right" content={<ModalFeedbackContent />}/>*/}
-            {/*<Card size={{width: "15rem", height: "10rem"}} title="Ремонт ноутбуков" srcIcon={iconImg}/>*/}
-            {/*<Card size={{width: "15rem", height: "4rem"}} srcLogo={lenovoLogo} srcIcon={iconImg}/>*/}
-            {/*  <ChapterPage title="РЕМОНТ РАЗЛИЧНЫХ БРЕНДОВ" chapterContent={*/}
-            {/*      <>*/}
-            {/*          <CardsList cardsList={[*/}
-            {/*              { size: {width: "15rem", height: "10rem"}, title: "Ремонт ноутбуков", srcIcon: iconImg},*/}
-            {/*              { size: {width: "15rem", height: "10rem"}, title: "Ремонт ноутбуков", srcIcon: iconImg},*/}
-            {/*              { size: {width: "15rem", height: "10rem"}, title: "Ремонт ноутбуков", srcIcon: iconImg},*/}
-            {/*              { size: {width: "15rem", height: "10rem"}, title: "Ремонт ноутбуков", srcIcon: iconImg},*/}
-            {/*              { size: {width: "15rem", height: "10rem"}, title: "Ремонт ноутбуков", srcIcon: iconImg},*/}
-            {/*              { size: {width: "15rem", height: "4rem"}, srcLogo: lenovoLogo, srcIcon: iconImg},*/}
-            {/*              { size: {width: "15rem", height: "4rem"}, srcLogo: lenovoLogo, srcIcon: iconImg},*/}
-            {/*              // <Card size={{width: "15rem", height: "4rem"}} srcLogo={lenovoLogo} srcIcon={iconImg}/>*/}
-            {/*          ]}/>*/}
-            {/*          <CustomButton classNames={classes.noneBackgroundButton} text="Показать все" srcImg={icon1Img} firstImg={true}/>*/}
-            {/*      </>*/}
-            {/*  }/>*/}
+            ]} hide={hideSidebar} setHide={handlerHiddenSidebar}/>
+            <PageContent setHide={handlerHiddenSidebar}/>
+            {!hideSidebar
+                &&
+                <MediaQuery maxWidth={768}>
+                    <Blackout setHide={handlerHiddenSidebar}/>
+                </MediaQuery>
+            }
         </div>
     );
 };

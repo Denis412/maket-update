@@ -83,6 +83,8 @@
   border: 1px solid #EAEAEA;
   border-radius: 6px;
   background: #FFFFFF; }
+  .card:not(.card:last-child) {
+    margin-right: 2rem; }
   .cardCompany {
     display: flex;
     justify-content: space-between;
@@ -99,7 +101,7 @@
 .cardsList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; }
+  overflow-y: hidden; }
 
 .chapterWrapper {
   display: flex;
@@ -171,9 +173,11 @@
   flex-direction: column;
   width: 20rem;
   min-width: 20rem;
-  min-height: 200vh;
+  max-height: 100%;
   padding: 0 1.5rem;
-  box-shadow: 16px 0 52px rgba(14, 24, 80, 0.2); }
+  background: #FFFFFF;
+  box-shadow: 16px 0 52px rgba(14, 24, 80, 0.2);
+  transition: 0.4s; }
 
 .pagesListWrapper {
   display: flex;
@@ -232,5 +236,162 @@
   bottom: 0;
   display: flex;
   flex-direction: column; }
+
+.navbarPageWrapper {
+  display: flex;
+  margin: 0.5rem 2rem; }
+
+.navbarPageList {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%; }
+
+.pageNavbarElement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  height: max-content;
+  padding: 0.5rem 1.375rem;
+  border: 2px solid #F8F8F8;
+  cursor: pointer; }
+  .pageNavbarElementActive {
+    border: 2px solid #B8FFEC;
+    border-radius: 6px;
+    background: #FFFFFF; }
+
+.navbarText {
+  text-align: center; }
+
+.pageContent {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  max-width: 1600px;
+  background: #F8F8F8; }
+
+.informationTextWrapper {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  margin-right: 2rem; }
+  .informationTextWrapper p:not(.informationTextWrapper p:first-child) {
+    margin-top: 2rem; }
+
+.showAllButton {
+  width: max-content;
+  margin-top: 1rem; }
+
+.imageRadius6 {
+  border-radius: 6px; }
+
+.pageInformationWrapper {
+  display: flex;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 4rem; }
+
+.tableWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem; }
+
+.headerPageWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  margin-right: 2rem;
+  margin-left: 2rem; }
+  .headerPageWrapper span {
+    display: flex; }
+  .headerPageWrapper div button:not(.headerPageWrapper div button:last-child) {
+    margin-right: 2rem; }
+
+.boldText {
+  font-size: 28px;
+  font-weight: bold; }
+
+.headerTableWrapper {
+  display: flex;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 1rem; }
+
+.tableContentWrapper {
+  padding: 0 1.5rem;
+  border-radius: 6px;
+  background: #FFFFFF; }
+
+.tableHeaderItem {
+  color: #7E7E82; }
+
+.tablePriceItem {
+  display: flex;
+  align-items: center;
+  height: 4rem; }
+  .tablePriceItem:not(.tablePriceItem:last-child) {
+    border-bottom: 1px solid #EAEAEA; }
+
+.footerPageWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 14px;
+  color: #7E7E82; }
+  .footerPageWrapper a {
+    text-decoration: none;
+    max-width: 20.625rem;
+    cursor: pointer; }
+  .footerPageWrapper a:not(.footerPageWrapper a:last-child) {
+    margin-right: 2.5rem; }
+  .footerPageWrapper a:last-child {
+    text-align: end; }
+  .footerPageWrapper a:hover {
+    text-decoration: underline; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 5.5rem;
+  padding: 0 1.5rem;
+  background: #FFFFFF; }
+  .headerSplit {
+    height: 2rem;
+    width: 2px;
+    background: #EAEAEA;
+    border-radius: 1px; }
+  .headerCenterContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+    padding: 0 1.25rem; }
+
+.blackout {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  min-height: 100vh;
+  background: #FFFFFF;
+  opacity: 0.96; }
+
+@media (max-width: 768px) {
+  .sidebarWrapper {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    z-index: 9999; } }
+@media (max-width: 768px) and (min-width: 369px) {
+  .navbarPageList {
+    width: 720px;
+    overflow-x: auto;
+    flex-wrap: nowrap; }
+
+  .pageNavbarElement {
+    min-width: max-content; } }
 
 /*# sourceMappingURL=MainStyles.module.css.map */

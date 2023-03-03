@@ -2,9 +2,9 @@ import React from 'react';
 
 import classes from "../../assets/styles/MainStyles.module.css"
 
-const IconButton = ({srcImg}) => {
+const IconButton = ({ srcImg, ...rest }) => {
     return (
-        <button className={classes.iconButton}>
+        <button {...rest} className={classes.iconButton}>
             <img src={srcImg} alt=""/>
         </button>
     );

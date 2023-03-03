@@ -6,11 +6,14 @@ import closeImg from "../../assets/images/burger.svg";
 import logoImg from "../../assets/images/Group.svg";
 import searchImg from "../../assets/images/search.svg";
 
-const SidebarHeader = () => {
+const SidebarHeader = ({ setHide }) => {
+    const handleClick = () => {
+        setHide(true);
+    }
     return (
         <section className={classes.sidebarHeader}>
             <MediaQuery maxWidth={768}>
-                <IconButton srcImg={closeImg}/>
+                <IconButton onClick={() => handleClick()} srcImg={closeImg}/>
                 <img style={{marginLeft: "-3rem"}} src={logoImg} alt=""/>
             </MediaQuery>
             <MediaQuery minWidth={769}>
